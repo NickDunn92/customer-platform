@@ -9,7 +9,6 @@ export const Login: React.FC<LoginProps> = ({ handleLogin }) => {
     return (  
         <>
             <LoginForm onLogin={handleLogin} />
-            <a href='/forgotpassword'>Forgot Password?</a>
         </>
     );
 }
