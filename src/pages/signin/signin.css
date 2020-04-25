@@ -1,0 +1,9 @@
+h1 {
+    font-size: 3rem !important;
+}
+
+.user-image {
+    width: 500px;
+    height: 400px;
+    margin-top: 10px;
+}

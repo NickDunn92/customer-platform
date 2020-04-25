@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Grid, Input, Button, Header, Checkbox } from 'semantic-ui-react';
+import { Grid, Input, Button, Checkbox } from 'semantic-ui-react';
 import * as yup from 'yup';
 
-export interface LoginFormProps {
-    onLogin: (data: LoginFormData) => void;
+export interface SignInFormProps {
+    onSignIn: (data: SignInFormData) => void;
 }
 
-export type LoginFormData = {
+export type SignInFormData = {
     email: string,
     password: string,
     
@@ -18,24 +18,19 @@ const schema = yup.object().shape({
     password: yup.string().required(),
 })
  
-export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
+export const SignInForm: React.FC<SignInFormProps> = ({ onSignIn }) => {
 
-    const { handleSubmit, control, errors } = useForm<LoginFormData>({
+    const { handleSubmit, control, errors } = useForm<SignInFormData>({
         validationSchema: schema
     });
 
-    const onSubmit = (data: LoginFormData) => {
-        onLogin(data);
+    const onSubmit = (data: SignInFormData) => {
+        onSignIn(data);
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <Grid columns={1} divided>
-                <Grid.Row>
-                    <Grid.Column>
-                        <Header textAlign={'center'} size={'large'}>Welcome...</Header>
-                    </Grid.Column>
-                </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
                         <Controller
