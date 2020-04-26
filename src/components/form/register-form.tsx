@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Grid, Input, Button, Header } from 'semantic-ui-react';
+import { Grid, Input, Button, Header, Checkbox } from 'semantic-ui-react';
 import * as yup from 'yup';
 
 export interface RegisterFormProps {
@@ -8,17 +8,13 @@ export interface RegisterFormProps {
 }
  
 export type RegisterFormData = {
-    firstname: string,
-    lastname: string,
-    businessname: string,
+    name: string,
     email: string,
     password: string,
 }
 
 const schema = yup.object().shape({
-    firstname: yup.string().required(),
-    lastname: yup.string().required(),
-    businessname: yup.string().required(),
+    name: yup.string().required(),
     email: yup.string().required(),
     password: yup.string().required(),
 })
@@ -38,51 +34,30 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
             <Grid columns={1} divided>
                 <Grid.Row>
                     <Grid.Column>
-                        <Header textAlign={'center'} size={'large'}>Register</Header>
+                        <Header textAlign={'center'} size={'medium'}>Start a 7-day free trial to access all our features<br /> without spending a penny. (No credit card required)</Header>
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
                         <Controller
-                            as={<Input placeholder='First Name' />}
-                            name="firstname"
+                            as={<Input placeholder='Name' />}
+                            name="name"
                             control={control}
                             defaultValue=""
                         />
-                        {errors.firstname && <p>Please enter a valid first name</p>}
+                        {errors.name && <p>Please enter your name</p>}
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
                         <Controller
-                            as={<Input placeholder='Last Name' />}
-                            name="lastname"
-                            control={control}
-                            defaultValue=""
-                        />
-                        {errors.lastname && <p>Please enter a valid last name</p>}
-                    </Grid.Column>
-                </Grid.Row>
-                <Grid.Row>
-                    <Grid.Column>
-                        <Controller
-                            as={<Input placeholder='Business Name' />}
-                            name="businessname"
-                            control={control}
-                            defaultValue=""
-                        />
-                        {errors.businessname && <p>Please enter a valid business name</p>}
-                    </Grid.Column>
-                </Grid.Row>
-                <Grid.Row>
-                    <Grid.Column>
-                        <Controller
-                            as={<Input placeholder='Email' />}
+                            as={<Input placeholder='Email address' />}
                             name="email"
                             control={control}
                             defaultValue=""
+                            type="email"
                         />
-                        {errors.email && <p>Please enter a valid email</p>}
+                        {errors.email && <p>Please enter a valid email address</p>}
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
@@ -92,15 +67,26 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                             name="password"
                             control={control}
                             defaultValue=""
+                            type="password"
                         />
                         {errors.password && <p>Please enter a valid password</p>}
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
-                        <Button>
-                            Register
+                        <Checkbox label='Accept our Terms and Conditions' />
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Button primary>
+                            CREATE FREE ACCOUNT
                         </Button>
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <p>Already have a login? <a href="signin">Log In Here</a></p>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

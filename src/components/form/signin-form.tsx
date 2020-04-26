@@ -34,25 +34,25 @@ export const SignInForm: React.FC<SignInFormProps> = ({ onSignIn }) => {
                 <Grid.Row>
                     <Grid.Column>
                         <Controller
-                            as={<Input icon='at' placeholder='email address' />}
+                            as={<Input icon='at' placeholder='Email address' />}
                             name="email"
                             control={control}
                             defaultValue=""
                             type="email"
                         />
-                        {errors.email && <p>Please enter a valid email address</p>}
+                        {errors.email && <p>Please enter your email address</p>}
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
                         <Controller
-                            as={<Input icon='lock' placeholder='password' />}
+                            as={<Input icon='lock' placeholder='Password' />}
                             name="password"
                             control={control}
                             defaultValue=""
                             type='password'
                         />
-                        {errors.password && <p>Please enter a valid password</p>}
+                        {errors.password && <p>Please enter your password</p>}
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>

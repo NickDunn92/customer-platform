@@ -1,0 +1,27 @@
+.advert {
+    padding-top: 6%;
+}
+
+.ui.input {
+    width: 45%;
+    height: 120%;
+}
+
+.ui.button {
+    width: 45%;
+    height: 100%;
+    font-size: 1.2rem !important;
+}
+
+.ui.header {
+    padding-bottom: 30px !important;
+}
+
+.ui.list>.item {
+    padding: 0.5em !important;
+    margin-left: 32% !important;
+}
+
+.ui.list>.item>.icon+.content {
+    width: 92% !important;
+}
