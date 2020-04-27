@@ -3,11 +3,11 @@ import { useForm, Controller } from 'react-hook-form';
 import { Grid, Input, Button, Header } from 'semantic-ui-react';
 import * as yup from 'yup';
 
-export interface ForgotPasswordFormProps {
-    onResetPassword: (data: ForgotPasswordFormData) => void;
+export interface RequestPasswordFormProps {
+    onResetPassword: (data: RequestPasswordFormData) => void;
 }
 
-export type ForgotPasswordFormData = {
+export type RequestPasswordFormData = {
     email: string,
     password: string,
 }
@@ -17,13 +17,13 @@ const schema = yup.object().shape({
     password: yup.string().required(),
 })
  
-export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ onResetPassword }) => {
+export const RequestPasswordForm: React.FC<RequestPasswordFormProps> = ({ onResetPassword }) => {
     
-    const { handleSubmit, control, errors } = useForm<ForgotPasswordFormData>({
+    const { handleSubmit, control, errors } = useForm<RequestPasswordFormData>({
         validationSchema: schema
     });
 
-    const onSubmit = (data: ForgotPasswordFormData) => {
+    const onSubmit = (data: RequestPasswordFormData) => {
         onResetPassword(data);
     }
     
@@ -32,7 +32,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ onResetP
              <Grid columns={1} divided>
                 <Grid.Row>
                     <Grid.Column>
-                        <Header textAlign={'center'} size={'large'}>Enter your email address below and we'll send you<br /> a link to reset your password</Header>
+                        <Header textAlign={'center'} size={'large'}>Enter your email address below and we'll send you<br /> a link with your password</Header>
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
@@ -62,7 +62,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ onResetP
                 <Grid.Row>
                     <Grid.Column>
                         <Button primary>
-                            RESET PASSWORD
+                            REQUEST PASSWORD
                         </Button>
                     </Grid.Column>
                 </Grid.Row>

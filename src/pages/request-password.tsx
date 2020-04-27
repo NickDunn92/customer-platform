@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { ForgotPasswordForm, ForgotPasswordFormData,  } from '../components';
+import { RequestPasswordForm, RequestPasswordFormData,  } from '../components';
 import { Grid } from 'semantic-ui-react';
 import userImage from '../user-image.png';
 
-export interface ForgotPasswordProps {
-    handleResetPassword: (data: ForgotPasswordFormData) => void;
+export interface RequestPasswordProps {
+    handleRequestPassword: (data: RequestPasswordFormData) => void;
 }
  
-export const ForgotPassword: React.FC<ForgotPasswordProps> = ({ handleResetPassword }) => {
+export const RequestPassword: React.FC<RequestPasswordProps> = ({ handleRequestPassword }) => {
     return (  
         <Grid>
             <Grid.Row columns={2}>
@@ -15,12 +15,12 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = ({ handleResetPassw
                     <Grid>
                         <Grid.Row>
                             <Grid.Column>
-                                <h1>Reset Password</h1>
+                                <h1>Request Password</h1>
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row>
                             <Grid.Column>
-                            <ForgotPasswordForm onResetPassword={handleResetPassword} />
+                            <RequestPasswordForm onResetPassword={handleRequestPassword} />
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

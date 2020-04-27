@@ -86,7 +86,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
-                        <p>Already have a login? <a href="signin">Log In Here</a></p>
+                        <p>Already have a login? <a href="/">Log In Here</a></p>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

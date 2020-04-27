@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, RouteComponentProps, withRouter } from 'react-router-dom';
 import './App.css';
-import { SignIn, Homepage, Register, Profile, ForgotPassword } from './pages';
+import { SignIn, Register, Profile, ForgotPassword, RequestPassword } from './pages';
 import { SignInFormData } from './components/form';
 import Logo from './excel.png';
 
@@ -14,7 +14,7 @@ const App: React.FC<AppProps> = ({ history }) => {
   }
 
   const handleSignOut = () => {
-    history.push('/signin')
+    history.push('/')
   }
   
   return (
@@ -22,11 +22,11 @@ const App: React.FC<AppProps> = ({ history }) => {
       <div className='page-content'>
         <img src={Logo} alt="Logo"/>
           <Switch>
-            <Route exact path='/signin' render={(props) => <SignIn {...props} handleSignIn={handleSignIn} />} />
-            <Route exact path='/' component={Homepage} />
+            <Route exact path='/' render={(props) => <SignIn {...props} handleSignIn={handleSignIn} />} />
             <Route exact path='/register' component={Register} />
             <Route exact path='/profile' component={Profile} />
-            <Route exact path='/forgotpassword' component={ForgotPassword} />
+            <Route exact path='/resetpassword' component={ForgotPassword} />
+            <Route exact path='/requestpassword' component={RequestPassword} />
           </Switch>
       </div>
     </div>
